@@ -1,18 +1,19 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18'
-        }
+    agent any
+
+    tools {
+        nodejs 'nodejs'   // configure in Jenkins → Global Tool Config
     }
 
     stages {
-        stage('Install') {
+
+        stage('Install Dependencies') {
             steps {
                 sh 'npm install'
             }
         }
 
-        stage('Build') {
+        stage('Build App') {
             steps {
                 sh 'npm run build'
             }
@@ -21,6 +22,12 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'npm test || true'
+            }
+        }
+
+        stage('Show Files') {
+            steps {
+                sh 'ls -la'
             }
         }
     }
