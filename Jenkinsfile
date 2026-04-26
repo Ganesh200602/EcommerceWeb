@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                git 'https://github.com/Ganesh200602/EcommerceWeb.git'
-            }
-        }
-
         stage('Install') {
             steps {
                 sh 'npm install'
