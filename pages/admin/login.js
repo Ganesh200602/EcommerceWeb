@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import User from "../../models/User";
 import connectDb from "../../middleware/conn";
 var CryptoJS = require("crypto-js");
